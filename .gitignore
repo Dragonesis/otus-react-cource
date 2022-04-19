@@ -29,7 +29,6 @@ src/locales/*/*.js
 
 # IntelliJ
 .idea/
-src/pages/Orders/Orders/OrdersUploadFromFile copy.js
 
 # geckodriver
 geckodriver.log
