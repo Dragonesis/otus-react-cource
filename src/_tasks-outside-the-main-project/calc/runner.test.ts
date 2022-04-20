@@ -7,28 +7,64 @@ describe('Runner single argument cases', () => {
 })
 
 describe('Runner simple cases', () => {
-  it('1 * 32', () => {
-    expect(runner('1 * 32')).toEqual(32)
+  it.each([
+    [1, 1, 1],
+    [2, 1, 2],
+    [3, 2, 6],
+    [4, 3, 12],
+    [5, 10, 50],
+  ])('%i * %i', (a, b, expected) => {
+    expect(runner(`${a} * ${b}`)).toBe(expected)
   })
 
-  it('2 * 32', () => {
-    expect(runner('2 * 32')).toEqual(64)
+  it.each([
+    [1, 1, 2],
+    [2, 1, 3],
+    [3, 2, 5],
+    [4, 3, 7],
+    [5, 10, 15],
+  ])('%i + %i', (a, b, expected) => {
+    expect(runner(`${a} + ${b}`)).toBe(expected)
   })
 
-  it('2 + 32', () => {
-    expect(runner('2 + 32')).toEqual(34)
+  it.each([
+    [1, 1],
+    [2, 2],
+    [3, 6],
+    [4, 24],
+    [5, 120],
+  ])('%i !', (a, expected) => {
+    expect(runner(`${a} !`)).toBe(expected)
   })
 
-  it('5 !', () => {
-    expect(runner('5 !')).toEqual(120)
+  it.each([
+    [1, 1],
+    [2, 4],
+    [3, 9],
+    [4, 16],
+    [5, 25],
+  ])('%i **', (a, expected) => {
+    expect(runner(`${a} **`)).toBe(expected)
   })
 
-  it('5 **', () => {
-    expect(runner('5 **')).toEqual(25)
+  it.each([
+    [1, 1, 1],
+    [1, 2, 0.5],
+    [2, 1, 2],
+    [2, 2, 1],
+    [120, 4, 30],
+  ])('%i / %i', (a, b, expected) => {
+    expect(runner(`${a} / ${b}`)).toBe(expected)
   })
 
-  it('4 ^ 4', () => {
-    expect(runner('4 ^ 4')).toEqual(256)
+  it.each([
+    [1, 1, 1],
+    [1, 2, 1],
+    [2, 1, 2],
+    [2, 2, 4],
+    [4, 4, 256],
+  ])('%i ^ %i', (a, b, expected) => {
+    expect(runner(`${a} ^ ${b}`)).toBe(expected)
   })
 })
 
