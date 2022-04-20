@@ -3,5 +3,4 @@
 
 npx pretty-quick --staged
 npm run lint-staged &&
-npm run lint:js:fix &&
-npm run test
+npm run lint:js:fix
