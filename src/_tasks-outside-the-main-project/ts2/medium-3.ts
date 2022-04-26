@@ -5,4 +5,4 @@ const orderStates = ['initial', 'inWork', 'buyingSupplies', 'producing', 'fullFi
 type OrderState = typeof orderStates[number]
 
 export const getUserOrderStates = (orderStates: OrderState[]): FIXME =>
-  orderStates.filter((state) => state !== 'buyingSupplies' && state !== 'producing')
+  orderStates.filter((state): state is OrderState => state !== 'buyingSupplies' && state !== 'producing')
