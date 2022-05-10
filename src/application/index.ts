@@ -32,11 +32,19 @@ export const putTheCardsInHand = (
   setDeckOfCard: (arg: DeckOfCard) => void,
   setCardsInHand: (arg: Unit[]) => void,
 ) => {
-  const count = Math.abs(cardsInHand.length - 3)
-  if (!count || !deckOfCard.cards.length) {
+  const requiredQuantity = Math.abs(cardsInHand.length - 3)
+
+  if (!requiredQuantity || !deckOfCard.cards.length) {
     return
   }
-  const { cardsInDeck: inDeck, cardsInHand: inHand } = toHand(clone(deckOfCard.cards), clone(cardsInHand), count)
+
+  const possibleQuantity = deckOfCard.cards.length >= requiredQuantity ? requiredQuantity : deckOfCard.cards.length
+
+  const { cardsInDeck: inDeck, cardsInHand: inHand } = toHand(
+    clone(deckOfCard.cards),
+    clone(cardsInHand),
+    possibleQuantity,
+  )
   deckOfCard.cards = inDeck
   setDeckOfCard(deckOfCard)
   setCardsInHand(inHand)
