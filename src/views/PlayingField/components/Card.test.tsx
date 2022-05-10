@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { Unit } from '@/services/models'
-import { checkingCardAttributes } from '@/testsHelpers'
+import { checkingCardAttributes } from '@/support/testsHelpers'
 
 import { Card } from './Card'
 

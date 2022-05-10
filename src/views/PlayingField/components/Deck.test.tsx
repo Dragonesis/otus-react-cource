@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { deckOfCardList } from '@/services/mocks'
 import { DeckOfCard, Unit } from '@/services/models'
-import { customRender } from '@/testsHelpers'
+import { customRender } from '@/support/testsHelpers'
 
 import { Deck } from './Deck'
 

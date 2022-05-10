@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { deckOfCardList } from '@/services/mocks'
-import { customRender, checkingCardAttributes } from '@/testsHelpers'
+import { customRender, checkingCardAttributes } from '@/support/testsHelpers'
 
 import { Hand } from './Hand'
 

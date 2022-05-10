@@ -4,7 +4,7 @@ import { StoreContext } from '@/services/adapters/store'
 import { DeckOfCard, Unit } from '@/services/models'
 
 export const customRender = (
-  children: React.ReactChild,
+  children: React.ReactNode,
   {
     providerProps,
     ...renderOptions
