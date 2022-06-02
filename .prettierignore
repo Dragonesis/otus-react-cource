@@ -1,2 +1,9 @@
 reports
 coverage
+.temp_cache
+.vscode
+.husky
+.git
+build
+node_modules
+reports

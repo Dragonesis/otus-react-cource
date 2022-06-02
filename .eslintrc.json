@@ -7,8 +7,8 @@
     "node": true,
     "jest/globals": true
   },
-  "plugins": ["@typescript-eslint", "prettier", "jest"],
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "plugins": ["@typescript-eslint", "prettier", "jest", "jsx-a11y"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier", "plugin:jsx-a11y/strict"],
   "rules": {
     "no-use-before-define": "off",
     "consistent-return": 2,
@@ -39,5 +39,10 @@
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

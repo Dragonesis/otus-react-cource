@@ -1,6 +1,5 @@
 # Otus React Cource
 
-
 ## Run Locally
 
 Clone the project
@@ -25,6 +24,18 @@ Run calculator
 
 ```bash
   npm run calc
+```
+
+Run main project
+
+```bash
+  npm run dev
+```
+
+Build main project
+
+```bash
+  npm run build
 ```
 
 Run test
