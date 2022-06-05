@@ -54,12 +54,87 @@ exports[`StartScreen renders correctly 1`] = `
 }
 
 .emotion-5 {
+  display: block;
+  margin-top: 20px;
+  max-width: 360px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-6 {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.emotion-7 {
+  -webkit-transition: border-color 0.2s ease-in-out;
+  transition: border-color 0.2s ease-in-out;
+  width: 100%;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #3a3a3a;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #fff;
+}
+
+.emotion-7:hover,
+.emotion-7:focus {
+  border-color: #9d9d9d;
+}
+
+.emotion-10 {
+  display: block;
+  width: 100%;
+}
+
+.emotion-12 {
   border-radius: 6px;
   background-color: #3a3a3a;
   color: #fff;
+  width: 100%;
+  max-width: 210px;
   height: 60px;
-  width: 210px;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 20px;
   margin-top: 20px;
+}
+
+.emotion-12:hover,
+.emotion-12:focus {
+  border-color: #303030;
+}
+
+.emotion-12.size-s {
+  height: 36px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+}
+
+.emotion-12.size-m {
+  height: 48px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 18px;
+}
+
+.emotion-12.size-l {
+  height: 60px;
+  padding-left: 16px;
+  padding-right: 16px;
   font-size: 20px;
 }
 
@@ -91,19 +166,57 @@ exports[`StartScreen renders correctly 1`] = `
     <p
       class="emotion-3"
     >
-      Нажимай на кнопку и врывайся в игру!
+      Регистрируйся и врывайся в игру!
     </p>
     <p
       class="emotion-4"
     >
       Игроков в онлайне: 0
     </p>
-    <button
+    <form
       class="emotion-5"
-      data-testid="action-in-games"
+      novalidate=""
     >
-      В игру
-    </button>
+      <label
+        class="emotion-6"
+      >
+        <input
+          class="emotion-7"
+          name="name"
+          placeholder="Имя"
+          required=""
+        />
+      </label>
+      <label
+        class="emotion-6"
+      >
+        <input
+          class="emotion-7"
+          name="email"
+          placeholder="Email"
+          required=""
+          type="email"
+        />
+      </label>
+      <label
+        class="emotion-10"
+      >
+        <input
+          class="emotion-7"
+          name="birthday"
+          placeholder="День рождения"
+          required=""
+          type="text"
+        />
+      </label>
+      <button
+        class="emotion-12"
+        data-testid="action-in-games"
+        type="submit"
+      >
+        В игру
+      </button>
+    </form>
   </div>
 </DocumentFragment>
 `;

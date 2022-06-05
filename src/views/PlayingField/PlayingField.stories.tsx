@@ -3,7 +3,7 @@ import { withReactContext } from 'storybook-react-context'
 import { Story, Meta } from '@storybook/react'
 import { StoreContext } from '@/services/adapters/store'
 import { deckOfCardList } from '@/services/mocks'
-import { PlayingField } from './PlayingField'
+import { PlayingField, PlayingFieldProps } from './PlayingField'
 
 export default {
   title: 'PlayingField/PlayingField',
@@ -19,5 +19,13 @@ export default {
   ],
 } as Meta
 
-const Template: Story = () => <PlayingField />
-export const HandExample = Template.bind({})
+export const PlayingFieldExample: Story<PlayingFieldProps> = (args) => <PlayingField {...args} />
+
+PlayingFieldExample.args = {
+  user: {
+    email: '',
+    name: '',
+    birthday: ''
+  },
+}
+

@@ -13,3 +13,9 @@ export type DeckOfCard = {
 }
 
 export type DeckOfCardList = DeckOfCard[]
+
+export interface User {
+  name: string
+  email: string
+  birthday: string
+}
