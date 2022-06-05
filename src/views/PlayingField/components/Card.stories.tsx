@@ -6,7 +6,7 @@ export default {
   title: 'PlayingField/Card',
   component: Card,
   argTypes: {
-    handleClick: () => 'Test',
+    handleClick: { action: 'Click on card' },
   },
 } as Meta
 

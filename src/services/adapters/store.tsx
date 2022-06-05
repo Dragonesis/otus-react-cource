@@ -1,4 +1,4 @@
-import React, { FC, ReactChild, useState } from 'react'
+import React, { FC, ReactNode, useState } from 'react'
 import { useContext } from 'react'
 import { DeckOfCard, Unit } from '@/services/models'
 
@@ -9,11 +9,11 @@ export interface StoreContextResult {
   setCardsInHand: (arg: Unit[]) => void
 }
 
-export const StoreContext = React.createContext<StoreContextResult>({})
+export const StoreContext = React.createContext({} as StoreContextResult)
 export const useStore = () => useContext(StoreContext)
 
 export interface ProviderProps {
-  children: ReactChild
+  children: ReactNode
 }
 
 export const Store: FC<ProviderProps> = ({ children }) => {

@@ -12,7 +12,8 @@ export const Deck = () => {
   return (
     <Core
       onClick={() => putTheCardsInHand(cardDeck, cardsInHand, setDeckOfCard, setCardsInHand)}
-      aria-label={`Колода ${cardDeck.name}`}>
+      aria-label={`Колода ${cardDeck.name}`}
+    >
       <Name>{cardDeck.name}</Name>
       <Count>{cardDeck.cards.length}</Count>
     </Core>
