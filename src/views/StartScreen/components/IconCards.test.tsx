@@ -10,6 +10,6 @@ describe('### IconCards', () => {
   })
   test('IconCards setting props', () => {
     const { container } = render(<IconCards className='test_class' />)
-    expect(container.getElementsByClassName('test_class').length).toBe(1)
+    expect(container.getElementsByClassName('test_class')).toHaveLength(1)
   })
 })

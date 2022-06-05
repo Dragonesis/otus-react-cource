@@ -68,7 +68,7 @@ export class StartScreen extends React.Component<StartScreenProps, StartScreenSt
             onClick={() => this.props.setUser('Jeremy Yanders')}
             onMouseEnter={() => this.setState({ isDisplayFakeCursor: false })}
             onMouseLeave={() => this.setState({ isDisplayFakeCursor: true })}
-            data-testid="action-in-games"
+            data-testid='action-in-games'
           >
             В игру
           </Action>

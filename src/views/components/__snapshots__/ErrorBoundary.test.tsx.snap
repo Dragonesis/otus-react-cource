@@ -2,6 +2,8 @@
 
 exports[`ErrorBoundary renders correctly 1`] = `
 <DocumentFragment>
-  <h1 />
+  <h1>
+    Test
+  </h1>
 </DocumentFragment>
 `;

@@ -4,15 +4,9 @@ import styled from '@emotion/styled'
 export interface PlayersNowProps {
   countGamer: number
 }
-export interface PlayersNowState {}
-
-export class PlayersNow extends React.Component<PlayersNowProps, PlayersNowState> {
+export class PlayersNow extends React.Component<PlayersNowProps, never> {
   constructor(props: PlayersNowProps) {
     super(props)
-
-    this.state = {
-      countGamer: 0,
-    } as PlayersNowState
   }
 
   shouldComponentUpdate = (nextProps: PlayersNowProps): boolean => {

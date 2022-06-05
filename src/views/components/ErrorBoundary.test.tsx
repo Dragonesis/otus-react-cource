@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import { ErrorBoundary } from './ErrorBoundary'
 const Child = () => {
@@ -7,7 +7,7 @@ const Child = () => {
 }
 
 test('ErrorBoundary renders correctly', () => {
-  const { asFragment } = render(<ErrorBoundary><h1></h1></ErrorBoundary>)
+  const { asFragment } = render(<ErrorBoundary><h1>Test</h1></ErrorBoundary>)
   expect(asFragment()).toMatchSnapshot()
 })
 

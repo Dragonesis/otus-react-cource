@@ -1,7 +1,4 @@
-import axios, { AxiosRequestConfig } from 'axios'
-declare module 'axios' {
-  export type AxiosResponse<T = any> = Promise<T>
-}
+import axios from 'axios'
 
 export const endpoints = {
   fakeOnline: 'https://random-data-api.com/api/stripe/random_stripe',
