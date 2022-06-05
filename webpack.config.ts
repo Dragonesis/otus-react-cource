@@ -93,7 +93,6 @@ module.exports = {
         options: {
           name: assetName,
           outputPath: 'static/media',
-          publicPath: mediaPath,
         },
       },
       {
