@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 export interface IconCardsProps {
   className?: string
 }
-
 export class IconCards extends React.Component<IconCardsProps, never> {
   constructor(props: IconCardsProps) {
     super(props)

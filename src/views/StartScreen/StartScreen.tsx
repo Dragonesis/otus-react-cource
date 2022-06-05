@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { User } from '@/services/models'
 import { req, endpoints } from '@/services/adapters/axios'
 import { ErrorBoundary } from '@/views/components'
-import { PlayersNow, IconCards } from './components'
+import { PlayersNow, IconCards, Form } from './components'
 
 export interface StartScreenProps {
-  setUser: (arg: string) => void
+  setUser: (arg: User) => void
 }
 
 export interface StartScreenState {
@@ -29,8 +30,8 @@ export class StartScreen extends React.Component<StartScreenProps, StartScreenSt
     } as StartScreenState
   }
 
-  async componentDidMount() {
-    await req(endpoints.fakeOnline, (data: { ccv: number }) => {
+  componentDidMount() {
+    req(endpoints.fakeOnline, (data: { ccv: number }) => {
       this.setState({ countGamer: data.ccv })
     })
     document.addEventListener('mousemove', this.handlerMouseEvent)
@@ -62,16 +63,13 @@ export class StartScreen extends React.Component<StartScreenProps, StartScreenSt
         <Core>
           <FakeCursor x={cordsIcon.x} y={cordsIcon.y} isShow={isDisplayFakeCursor} />
           <Title>Добро пожаловать!</Title>
-          <Descr>Нажимай на кнопку и врывайся в игру!</Descr>
+          <Descr>Регистрируйся и врывайся в игру!</Descr>
           <PlayersNow countGamer={countGamer} />
-          <Action
-            onClick={() => this.props.setUser('Jeremy Yanders')}
+          <Form
             onMouseEnter={() => this.setState({ isDisplayFakeCursor: false })}
             onMouseLeave={() => this.setState({ isDisplayFakeCursor: true })}
-            data-testid='action-in-games'
-          >
-            В игру
-          </Action>
+            setUser={this.props.setUser}
+          />
         </Core>
       </ErrorBoundary>
     )
@@ -112,14 +110,4 @@ const FakeCursor = styled(IconCards)<FakeCursorProps>`
   opacity: ${(props) => (props.isShow ? 1 : 0)};
   top: ${(props) => props.y};
   left: ${(props) => props.x}; ;
-`
-
-const Action = styled.button`
-  border-radius: 6px;
-  background-color: #3a3a3a;
-  color: #fff;
-  height: 60px;
-  width: 210px;
-  margin-top: 20px;
-  font-size: 20px;
 `

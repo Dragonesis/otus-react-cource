@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import styled from '@emotion/styled'
 import { deckOfCardList } from '@/services/mocks'
+import { User } from '@/services/models'
 import { getDeckOfCard } from '@/application'
 
 import { useStore } from '@/services/adapters/store'
@@ -9,7 +10,7 @@ import { Deck } from './components/Deck'
 import { Hand } from './components/Hand'
 
 export interface PlayingFieldProps {
-  user: string
+  user: User
 }
 
 export const PlayingField: FC<PlayingFieldProps> = ({ user }) => {
@@ -17,7 +18,7 @@ export const PlayingField: FC<PlayingFieldProps> = ({ user }) => {
 
   return (
     <>
-      <UserName>{user}</UserName>
+      <UserName>{user.name}</UserName>
       <Action
         onClick={() => {
           setDeckOfCard(getDeckOfCard(deckOfCardList))

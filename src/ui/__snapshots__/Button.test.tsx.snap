@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`### Button Button renders correctly 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  border-radius: 6px;
+  background-color: #3a3a3a;
+  color: #fff;
+  width: 100%;
+}
+
+.emotion-0:hover,
+.emotion-0:focus {
+  border-color: #303030;
+}
+
+.emotion-0.size-s {
+  height: 36px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+}
+
+.emotion-0.size-m {
+  height: 48px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 18px;
+}
+
+.emotion-0.size-l {
+  height: 60px;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 20px;
+}
+
+<button
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
