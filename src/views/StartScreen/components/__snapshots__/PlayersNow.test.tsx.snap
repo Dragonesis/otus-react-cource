@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`### PlayersNow PlayersNow renders correctly 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-size: 22px;
+  margin-top: 16px;
+}
+
+<p
+    class="emotion-0"
+  >
+    Игроков в онлайне: 200
+  </p>
+</DocumentFragment>
+`;
