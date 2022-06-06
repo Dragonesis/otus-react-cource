@@ -2,6 +2,9 @@ import React, { FC, useCallback, useState, ChangeEvent } from 'react'
 import { Field, FieldWrap, Button } from '@/ui'
 import { User } from '@/services/models'
 import styled from '@emotion/styled'
+import { useStore } from '@/services/adapters/store'
+import { deckOfCardList } from '@/services/mocks'
+import { getDeckOfCard } from '@/application'
 
 export interface FormProps {
   onMouseEnter: () => void
@@ -14,6 +17,7 @@ export type FormErrors<Type> = {
 }
 
 export const Form: FC<FormProps> = ({ onMouseEnter, onMouseLeave, setUser }) => {
+  const { setDeckOfCard, setCardsInHand } = useStore()
   const [values, setValues] = useState<User>({
     name: '',
     email: '',
@@ -48,6 +52,8 @@ export const Form: FC<FormProps> = ({ onMouseEnter, onMouseLeave, setUser }) => 
     setErrors(errors)
     if (!Object.values(errors).find(item => item) && values.name) {
       setUser(values)
+      setDeckOfCard(getDeckOfCard(deckOfCardList))
+      setCardsInHand([])
     }
   }, [])
 
@@ -89,6 +95,7 @@ export const Form: FC<FormProps> = ({ onMouseEnter, onMouseLeave, setUser }) => 
     </Core>
   )
 }
+
 
 const Core = styled.form`
   display: block;

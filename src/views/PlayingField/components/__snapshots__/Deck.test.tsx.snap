@@ -1,9 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Deck renders correctly 1`] = `
-<DocumentFragment>
-  <h6>
-    Нет колоды
-  </h6>
-</DocumentFragment>
-`;
+exports[`Deck renders correctly 1`] = `<DocumentFragment />`;

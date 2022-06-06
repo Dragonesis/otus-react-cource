@@ -1,44 +1,38 @@
 import React, { FC } from 'react'
 import styled from '@emotion/styled'
-import { deckOfCardList } from '@/services/mocks'
 import { User } from '@/services/models'
-import { getDeckOfCard } from '@/application'
 
-import { useStore } from '@/services/adapters/store'
-
-import { Deck } from './components/Deck'
-import { Hand } from './components/Hand'
+import { Deck, Hand, Header } from './components'
 
 export interface PlayingFieldProps {
   user: User
 }
 
 export const PlayingField: FC<PlayingFieldProps> = ({ user }) => {
-  const { setDeckOfCard, setCardsInHand } = useStore()
 
   return (
     <>
-      <UserName>{user.name}</UserName>
-      <Action
-        onClick={() => {
-          setDeckOfCard(getDeckOfCard(deckOfCardList))
-          setCardsInHand([])
-        }}
-      >
-        Новая колода
-      </Action>
-      <Deck />
-      <Hand />
+      <Header name={user.name} />
+      <Area>
+        <ModDeck />
+        <ModHand />
+      </Area>
     </>
   )
 }
 
-const UserName = styled.p`
-  font-size: 18px;
+const Area = styled.div`
+  display: flex;
+  align-items: flex-end;
+  max-width: 800px;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
 `
-const Action = styled.button`
-  font-size: 18px;
-  width: 150px;
-  border-radius: 2px;
-  border: 1px solid #000;
+
+const ModDeck = styled(Deck)`
+  margin-right: 20px;
+`
+
+const ModHand = styled(Hand)`
 `

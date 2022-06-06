@@ -5,4 +5,8 @@ import { Store } from '@/services/adapters/store'
 
 const container = document.getElementById('app') as HTMLElement
 const root = createRoot(container)
-root.render(<Store><App /></Store>)
+root.render(
+  <Store>
+    <App />
+  </Store>,
+)

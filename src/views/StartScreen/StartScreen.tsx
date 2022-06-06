@@ -20,7 +20,7 @@ export interface StartScreenState {
 
 export class StartScreen extends React.Component<StartScreenProps, StartScreenState> {
   timer!: ReturnType<typeof setTimeout>
-
+  
   constructor(props: StartScreenProps) {
     super(props)
     this.state = {
