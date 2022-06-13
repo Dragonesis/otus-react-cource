@@ -1,11 +1,7 @@
-import { compose, sort, concat, join, toPairsIn, map, split, tail, fromPairs } from 'ramda'
+import { compose, sort, concat, join, toPairsIn, map, split, tail, fromPairs, prop } from 'ramda'
 
 // Задание 1
 export type Team = { name: string; score: number }
-
-function getName(team: Team) {
-  return team.name
-}
 
 function sortTeams(teams: Team[]) {
   const diff = function (a: Team, b: Team) {
@@ -14,7 +10,7 @@ function sortTeams(teams: Team[]) {
   return sort(diff, teams)[0]
 }
 
-export const getTopName = (teams: Team[]): string => compose(getName, sortTeams)(teams)
+export const getTopName = (teams: Team[]): string => compose(prop('name'), sortTeams)(teams)
 
 // Задание 2
 export type QsObj = Record<string, string | number | boolean | object>
