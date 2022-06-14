@@ -1,20 +1,32 @@
-import React, { StrictMode, useState } from 'react'
-import { Store } from '@/services/adapters/store'
-import { User } from '@/services/models'
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { PlayingField, StartScreen } from './views'
-import '@/assets/styles/main.css'
+import { ProtectPath } from '@/views/components'
+import { useStore } from './services/adapters/store'
 
 export const App = () => {
-  const [user, setUser] = useState<User>()
+  const { user } = useStore()
+
   return (
-    <Store>
-      {user ? (
-        <StrictMode>
-          <PlayingField user={user} />
-        </StrictMode>
-      ) : (
-        <StartScreen setUser={setUser} />
-      )}
-    </Store>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ProtectPath condition={!!user} to={'/auth'}>
+              <PlayingField />
+            </ProtectPath>
+          }
+        ></Route>
+        <Route
+          path="/auth"
+          element={
+            <ProtectPath condition={!user} to={'/'}>
+              <StartScreen />
+            </ProtectPath>
+          }
+        ></Route>
+      </Routes>
+    </BrowserRouter>
   )
 }

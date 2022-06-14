@@ -7,13 +7,8 @@ export interface FieldWrapProps extends PropsWithChildren<unknown> {
 }
 
 export const FieldWrap: FC<FieldWrapProps> = ({ isOffset, children }) => {
-  return (
-    <Core isOffset={isOffset}>
-      {children}
-    </Core>
-  )
+  return <Core isOffset={isOffset}>{children}</Core>
 }
-
 
 export interface CoreProps {
   isOffset?: boolean

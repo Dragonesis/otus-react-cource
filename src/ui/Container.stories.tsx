@@ -15,4 +15,8 @@ export default {
   component: Container,
 } as Meta
 
-export const ContainerExample: Story = () => <Container><Box /></Container>
+export const ContainerExample: Story = () => (
+  <Container>
+    <Box />
+  </Container>
+)

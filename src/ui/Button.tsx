@@ -53,26 +53,22 @@ const fixSizeMap = {
 }
 const variantMap = {
   dark,
-  light
+  light,
 }
 
 export const Button = styled.button<ButtonProps>`
   border-radius: 6px;
   width: 100%;
-  max-width: ${props => props.fixSize && fixSizeMap[props.fixSize]};
+  max-width: ${(props) => props.fixSize && fixSizeMap[props.fixSize]};
 
   &:hover,
   &:focus {
     border-color: #303030;
   }
 
-  ${props => {
-    return [
-      props.size ? sizeMap[props.size] : sizeS,
-      props.variant ? variantMap[props.variant] : dark,
-    ] 
-  }
-}
+  ${(props) => {
+    return [props.size ? sizeMap[props.size] : sizeS, props.variant ? variantMap[props.variant] : dark]
+  }}
 
   &.size-s {
     height: 36px;

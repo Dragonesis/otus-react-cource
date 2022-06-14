@@ -8,7 +8,7 @@ const Child = () => {
   throw new Error()
 }
 // eslint-disable-next-line  @typescript-eslint/no-empty-function
-const components = [<StartScreen setUser={() => { }} />, <Child />]
+const components = [<StartScreen setUser={() => {}} />, <Child />]
 
 export default {
   title: 'Components/ErrorBoundary',
@@ -22,12 +22,12 @@ export default {
         labels: ['Нормальное состояние', 'Состояние с ошибкой'],
       },
     },
-  }
+  },
 } as Meta
 
 export const ErrorBoundaryExample: Story<ErrorBoundaryProps> = (args) => <ErrorBoundary {...args} />
 
 ErrorBoundaryExample.args = {
   // eslint-disable-next-line  @typescript-eslint/no-empty-function
-  children: <StartScreen setUser={() => {}}/>,
+  children: <StartScreen setUser={() => {}} />,
 }

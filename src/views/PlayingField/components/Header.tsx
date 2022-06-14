@@ -10,20 +10,33 @@ export interface HeaderProps {
 }
 
 export const Header: FC<HeaderProps> = ({ name }) => {
-  const { setDeckOfCard, setCardsInHand } = useStore()
-  
+  const { setDeckOfCard, setCardsInHand, setUser } = useStore()
+
   return (
     <Core>
       <ModContainer>
         <Name>{name}</Name>
-        <ActionNewGame 
-          variant='light'
-          fixSize='s'
+        <ActionNewGame
+          variant="light"
+          fixSize="s"
           onClick={() => {
             setDeckOfCard(getDeckOfCard(deckOfCardList))
             setCardsInHand([])
           }}
-        >Новая игра</ActionNewGame>
+        >
+          Новая игра
+        </ActionNewGame>
+        <ActionNewGame
+          variant="light"
+          fixSize="s"
+          onClick={() => {
+            setDeckOfCard(null)
+            setCardsInHand([])
+            setUser(null)
+          }}
+        >
+          Выход
+        </ActionNewGame>
       </ModContainer>
     </Core>
   )
@@ -44,8 +57,10 @@ const ModContainer = styled(Container)`
 const Name = styled.div`
   font-size: 18px;
   color: #fff;
+  margin-right: auto;
 `
 
 const ActionNewGame = styled(Button)`
   font-size: 18px;
+  margin-left: 10px;
 `

@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState, ChangeEvent } from 'react'
+import React, { FC, useCallback, useState, ChangeEvent, memo } from 'react'
 import { Field, FieldWrap, Button } from '@/ui'
 import { User } from '@/services/models'
 import styled from '@emotion/styled'
@@ -9,15 +9,15 @@ import { getDeckOfCard } from '@/application'
 export interface FormProps {
   onMouseEnter: () => void
   onMouseLeave: () => void
-  setUser: (arg: User) => void
 }
 
 export type FormErrors<Type> = {
   [Property in keyof Type]: boolean
 }
 
-export const Form: FC<FormProps> = ({ onMouseEnter, onMouseLeave, setUser }) => {
-  const { setDeckOfCard, setCardsInHand } = useStore()
+export const Form: FC<FormProps> = memo(({ onMouseEnter, onMouseLeave }) => {
+  const { setDeckOfCard, setCardsInHand, setUser } = useStore()
+
   const [values, setValues] = useState<User>({
     name: '',
     email: '',
@@ -39,18 +39,14 @@ export const Form: FC<FormProps> = ({ onMouseEnter, onMouseLeave, setUser }) => 
 
   const handlingOnSubmit = useCallback((e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const errors = [
-      'name',
-      'email',
-      'birthday',
-    ].reduce((acc: { [key: string]: boolean }, val) => {
+    const errors = ['name', 'email', 'birthday'].reduce((acc: { [key: string]: boolean }, val) => {
       const el = e.target.elements.namedItem(val) as HTMLInputElement
       acc[val] = !el.validity.valid
       return acc
     }, {})
 
     setErrors(errors)
-    if (!Object.values(errors).find(item => item) && values.name) {
+    if (!Object.values(errors).find((item) => item) && values.name) {
       setUser(values)
       setDeckOfCard(getDeckOfCard(deckOfCardList))
       setCardsInHand([])
@@ -60,42 +56,44 @@ export const Form: FC<FormProps> = ({ onMouseEnter, onMouseLeave, setUser }) => 
   return (
     <Core onSubmit={handlingOnSubmit} noValidate>
       <FieldWrap isOffset>
-        <Field
-          isError={errors.name}
-          required name='name' onChange={handlingOnChange} placeholder='Имя'/>
+        <Field isError={errors.name} required name="name" onChange={handlingOnChange} placeholder="Имя" />
       </FieldWrap>
       <FieldWrap isOffset>
         <Field
           isError={errors.email}
-          required name='email' type='email' onChange={handlingOnChange} placeholder='Email' />
+          required
+          name="email"
+          type="email"
+          onChange={handlingOnChange}
+          placeholder="Email"
+        />
       </FieldWrap>
       <FieldWrap>
         <Field
           isError={errors.birthday}
           required
-          name='birthday'
+          name="birthday"
           type={isBirthdayCalendar ? 'date' : 'text'}
           onFocus={() => setIsBirthdayCalendar(true)}
           onBlur={(e) => !e.target.value && setIsBirthdayCalendar(false)}
           onChange={handlingOnChange}
-          placeholder='День рождения'
+          placeholder="День рождения"
         />
       </FieldWrap>
 
       <Action
-        size='l'
-        fixSize='m'
-        type='submit'
+        size="l"
+        fixSize="m"
+        type="submit"
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        data-testid='action-in-games'
+        data-testid="action-in-games"
       >
         В игру
       </Action>
     </Core>
   )
-}
-
+})
 
 const Core = styled.form`
   display: block;

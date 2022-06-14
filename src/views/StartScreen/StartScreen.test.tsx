@@ -3,8 +3,9 @@ import { render } from '@testing-library/react'
 
 import { StartScreen } from './StartScreen'
 
-test('StartScreen renders correctly', () => {
-  const setUser = jest.fn()
-  const { asFragment } = render(<StartScreen setUser={setUser} />)
-  expect(asFragment()).toMatchSnapshot()
+describe('### StartScreen', () => {
+  test('StartScreen renders correctly', () => {
+    const { asFragment } = render(<StartScreen />)
+    expect(asFragment()).toMatchSnapshot()
+  })
 })

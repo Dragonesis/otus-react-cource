@@ -8,4 +8,3 @@ export default {
 } as Meta
 
 export const ButtonExample: Story<ButtonProps> = (args) => <Button {...args}>Test</Button>
-

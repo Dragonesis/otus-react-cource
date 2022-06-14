@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StartScreen renders correctly 1`] = `
+exports[`### StartScreen StartScreen renders correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
