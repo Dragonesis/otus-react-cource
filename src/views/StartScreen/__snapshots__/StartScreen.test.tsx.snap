@@ -101,14 +101,14 @@ exports[`StartScreen renders correctly 1`] = `
 
 .emotion-12 {
   border-radius: 6px;
-  background-color: #3a3a3a;
-  color: #fff;
   width: 100%;
   max-width: 210px;
   height: 60px;
   padding-left: 16px;
   padding-right: 16px;
   font-size: 20px;
+  background-color: #3a3a3a;
+  color: #fff;
   margin-top: 20px;
 }
 

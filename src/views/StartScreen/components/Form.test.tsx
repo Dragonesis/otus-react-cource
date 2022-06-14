@@ -1,21 +1,33 @@
 import React from 'react'
 import { render, fireEvent, screen } from '@testing-library/react'
+import { customRender } from '@/support/testsHelpers'
 
 import { Form } from './Form'
 
 describe('### Form', () => {
+  const setDeckOfCard = jest.fn()
+  const setCardsInHand = jest.fn()
+
+  const providerProps = {
+    cardDeck: undefined,
+    cardsInHand: [],
+    setDeckOfCard,
+    setCardsInHand,
+  }
+
   const setUser = jest.fn()
   const onMouseEnter = jest.fn()
   const onMouseLeave = jest.fn()
+
   test('Form renders correctly', () => {
     const { asFragment } = render(<Form setUser={setUser} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />)
     expect(asFragment()).toMatchSnapshot()
   })
-  test('StartScreen setUser test', () => {
+  test('Form submit', () => {
     const setUser = jest.fn()
     const onMouseEnter = jest.fn()
     const onMouseLeave = jest.fn()
-    const { container } = render(<Form setUser={setUser} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>)
+    const { container } = customRender(<Form setUser={setUser} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />, { providerProps })
 
     const name = screen.getByPlaceholderText('Имя')
     const email = screen.getByPlaceholderText('Email')
@@ -29,6 +41,16 @@ describe('### Form', () => {
     if (action) {
       fireEvent.click(action)
       expect(setUser).toHaveBeenCalled()
+    }
+  })
+  test('Validation', () => {
+    const { container } = customRender(<Form setUser={setUser} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />, { providerProps })
+
+    const action = container.querySelector('[data-testid="action-in-games"]')
+    expect(action).toBeInTheDocument()
+    if (action) {
+      fireEvent.click(action)
+      expect(setUser).not.toHaveBeenCalled()
     }
   })
 })

@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useStore } from '@/services/adapters/store'
 import { putTheCardsInHand } from '@/application'
 import styled from '@emotion/styled'
 
-export const Deck = () => {
+export interface DeckProps {
+  className?: string;
+}
+
+export const Deck: FC<DeckProps> = ({ className }) => {
   const { cardDeck, cardsInHand, setDeckOfCard, setCardsInHand } = useStore()
 
   if (!cardDeck) {
-    return <h6>Нет колоды</h6>
+    return <></>
   }
   return (
     <Core
+      className={className}
       onClick={() => putTheCardsInHand(cardDeck, cardsInHand, setDeckOfCard, setCardsInHand)}
       aria-label={`Колода ${cardDeck.name}`}
     >
@@ -26,8 +31,8 @@ const Core = styled.button`
   align-items: center;
   justify-content: center;
   border: 1px solid #000;
-  width: 260px;
-  height: 300px;
+  width: 180px;
+  height: 240px;
   border-radius: 4px;
 `
 const Name = styled.div`

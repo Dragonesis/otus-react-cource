@@ -21,8 +21,8 @@ test('Deck without cards', () => {
     setDeckOfCard,
     setCardsInHand,
   }
-  customRender(<Deck />, { providerProps })
-  expect(screen.getByText('Нет колоды')).toBeInTheDocument()
+  const { container } = customRender(<Deck />, { providerProps })
+  expect(container.getElementsByTagName('div').length).toBe(0)
 })
 
 test('Deck with cards', () => {
@@ -38,7 +38,6 @@ test('Deck with cards', () => {
     setCardsInHand,
   }
   customRender(<Deck />, { providerProps })
-  expect(screen.queryByText('Нет колоды')).toBeNull()
   expect(screen.getByText(deck.name)).toBeInTheDocument()
   expect(screen.getByText(deck.cards.length)).toBeInTheDocument()
 })

@@ -4,8 +4,20 @@ import { css } from '@emotion/react'
 export interface ButtonProps {
   size?: 's' | 'm' | 'l'
   fixSize?: 's' | 'm' | 'l'
+  variant?: 'dark' | 'light'
 }
 
+const dark = () =>
+  css`
+    background-color: #3a3a3a;
+    color: #fff;
+  `
+
+const light = () =>
+  css`
+    background-color: #fff;
+    color: #3a3a3a;
+  `
 const sizeS = () =>
   css`
     height: 36px;
@@ -39,11 +51,13 @@ const fixSizeMap = {
   m: '210px',
   l: '250px',
 }
+const variantMap = {
+  dark,
+  light
+}
 
 export const Button = styled.button<ButtonProps>`
   border-radius: 6px;
-  background-color: #3a3a3a;
-  color: #fff;
   width: 100%;
   max-width: ${props => props.fixSize && fixSizeMap[props.fixSize]};
 
@@ -53,7 +67,10 @@ export const Button = styled.button<ButtonProps>`
   }
 
   ${props => {
-    return props.size && [sizeMap[props.size]] 
+    return [
+      props.size ? sizeMap[props.size] : sizeS,
+      props.variant ? variantMap[props.variant] : dark,
+    ] 
   }
 }
 

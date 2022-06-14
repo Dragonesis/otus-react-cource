@@ -24,7 +24,7 @@ export const PlayingFieldExample: Story<PlayingFieldProps> = (args) => <PlayingF
 PlayingFieldExample.args = {
   user: {
     email: '',
-    name: '',
+    name: 'User Name',
     birthday: ''
   },
 }
