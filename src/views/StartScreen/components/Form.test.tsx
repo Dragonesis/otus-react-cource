@@ -5,29 +5,37 @@ import { customRender } from '@/support/testsHelpers'
 import { Form } from './Form'
 
 describe('### Form', () => {
+  let mutateUser: {[key: string]: string} = {}
+  const expectUser = {
+    name: 'test',
+    email: 'test@ya',
+    birthday: '10.01.1999',
+  }
   const setDeckOfCard = jest.fn()
   const setCardsInHand = jest.fn()
+  const setUser = jest.fn((e) => mutateUser = e)
 
   const providerProps = {
     cardDeck: undefined,
     cardsInHand: [],
     setDeckOfCard,
     setCardsInHand,
+    user: null,
+    setUser,
   }
 
-  const setUser = jest.fn()
   const onMouseEnter = jest.fn()
   const onMouseLeave = jest.fn()
 
   test('Form renders correctly', () => {
-    const { asFragment } = render(<Form setUser={setUser} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />)
+    const { asFragment } = render(<Form onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />)
     expect(asFragment()).toMatchSnapshot()
   })
+
   test('Form submit', () => {
-    const setUser = jest.fn()
     const onMouseEnter = jest.fn()
     const onMouseLeave = jest.fn()
-    const { container } = customRender(<Form setUser={setUser} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />, { providerProps })
+    const { container } = customRender(<Form onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />, { providerProps })
 
     const name = screen.getByPlaceholderText('Имя')
     const email = screen.getByPlaceholderText('Email')
@@ -41,10 +49,12 @@ describe('### Form', () => {
     if (action) {
       fireEvent.click(action)
       expect(setUser).toHaveBeenCalled()
+      expect(mutateUser).toStrictEqual(expectUser)
     }
   })
+
   test('Validation', () => {
-    const { container } = customRender(<Form setUser={setUser} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />, { providerProps })
+    const { container } = customRender(<Form onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />, { providerProps })
 
     const action = container.querySelector('[data-testid="action-in-games"]')
     expect(action).toBeInTheDocument()

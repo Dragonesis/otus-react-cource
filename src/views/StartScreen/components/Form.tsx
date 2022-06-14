@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState, ChangeEvent } from 'react'
+import React, { FC, useCallback, useState, ChangeEvent, memo } from 'react'
 import { Field, FieldWrap, Button } from '@/ui'
 import { User } from '@/services/models'
 import styled from '@emotion/styled'
@@ -9,15 +9,15 @@ import { getDeckOfCard } from '@/application'
 export interface FormProps {
   onMouseEnter: () => void
   onMouseLeave: () => void
-  setUser: (arg: User) => void
 }
 
 export type FormErrors<Type> = {
   [Property in keyof Type]: boolean
 }
 
-export const Form: FC<FormProps> = ({ onMouseEnter, onMouseLeave, setUser }) => {
-  const { setDeckOfCard, setCardsInHand } = useStore()
+export const Form: FC<FormProps> = memo(({ onMouseEnter, onMouseLeave }) => {
+  const { setDeckOfCard, setCardsInHand, setUser } = useStore()
+
   const [values, setValues] = useState<User>({
     name: '',
     email: '',
@@ -94,7 +94,7 @@ export const Form: FC<FormProps> = ({ onMouseEnter, onMouseLeave, setUser }) => 
       </Action>
     </Core>
   )
-}
+})
 
 
 const Core = styled.form`

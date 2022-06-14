@@ -5,9 +5,7 @@ import { req, endpoints } from '@/services/adapters/axios'
 import { ErrorBoundary } from '@/views/components'
 import { PlayersNow, IconCards, Form } from './components'
 
-export interface StartScreenProps {
-  setUser: (arg: User) => void
-}
+export interface StartScreenProps {}
 
 export interface StartScreenState {
   countGamer: number
@@ -20,7 +18,7 @@ export interface StartScreenState {
 
 export class StartScreen extends React.Component<StartScreenProps, StartScreenState> {
   timer!: ReturnType<typeof setTimeout>
-  
+
   constructor(props: StartScreenProps) {
     super(props)
     this.state = {
@@ -68,7 +66,6 @@ export class StartScreen extends React.Component<StartScreenProps, StartScreenSt
           <Form
             onMouseEnter={() => this.setState({ isDisplayFakeCursor: false })}
             onMouseLeave={() => this.setState({ isDisplayFakeCursor: true })}
-            setUser={this.props.setUser}
           />
         </Core>
       </ErrorBoundary>

@@ -29,6 +29,7 @@ exports[`### Header renders correctly 1`] = `
 .emotion-2 {
   font-size: 18px;
   color: #fff;
+  margin-right: auto;
 }
 
 .emotion-3 {
@@ -42,6 +43,7 @@ exports[`### Header renders correctly 1`] = `
   background-color: #fff;
   color: #3a3a3a;
   font-size: 18px;
+  margin-left: 10px;
 }
 
 .emotion-3:hover,
@@ -85,6 +87,11 @@ exports[`### Header renders correctly 1`] = `
         class="emotion-3"
       >
         Новая игра
+      </button>
+      <button
+        class="emotion-3"
+      >
+        Выход
       </button>
     </div>
   </div>
