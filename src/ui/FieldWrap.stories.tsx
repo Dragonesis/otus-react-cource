@@ -3,7 +3,12 @@ import { Story, Meta } from '@storybook/react'
 import { FieldWrap, FieldWrapProps } from './FieldWrap'
 import { Field } from './Field'
 
-const components = [<Field placeholder='test' />, <><Field placeholder='test 2' /> <p>Текст под полем</p></>]
+const components = [
+  <Field placeholder="test" />,
+  <>
+    <Field placeholder="test 2" /> <p>Текст под полем</p>
+  </>,
+]
 
 export default {
   title: 'UI/FieldWrap',
@@ -17,12 +22,11 @@ export default {
         labels: ['Текстовое поле', 'Текстовое поле с подсказкой'],
       },
     },
-
-  }
+  },
 } as Meta
 
 export const FieldWrapExample: Story<FieldWrapProps> = (args) => <FieldWrap {...args} />
 
 FieldWrapExample.args = {
-  children: <Field placeholder='test' />,
+  children: <Field placeholder="test" />,
 }

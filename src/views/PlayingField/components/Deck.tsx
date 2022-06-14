@@ -4,7 +4,7 @@ import { putTheCardsInHand } from '@/application'
 import styled from '@emotion/styled'
 
 export interface DeckProps {
-  className?: string;
+  className?: string
 }
 
 export const Deck: FC<DeckProps> = ({ className }) => {

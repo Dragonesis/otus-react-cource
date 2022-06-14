@@ -1,11 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { User } from '@/services/models'
 import { req, endpoints } from '@/services/adapters/axios'
 import { ErrorBoundary } from '@/views/components'
 import { PlayersNow, IconCards, Form } from './components'
-
-export interface StartScreenProps {}
 
 export interface StartScreenState {
   countGamer: number
@@ -16,10 +13,10 @@ export interface StartScreenState {
   }
 }
 
-export class StartScreen extends React.Component<StartScreenProps, StartScreenState> {
+export class StartScreen extends React.Component<never, StartScreenState> {
   timer!: ReturnType<typeof setTimeout>
 
-  constructor(props: StartScreenProps) {
+  constructor(props: never) {
     super(props)
     this.state = {
       countGamer: 0,
@@ -35,7 +32,7 @@ export class StartScreen extends React.Component<StartScreenProps, StartScreenSt
     document.addEventListener('mousemove', this.handlerMouseEvent)
   }
 
-  componentDidUpdate(prevProps: StartScreenProps, prevState: StartScreenState) {
+  componentDidUpdate(prevProps: never, prevState: StartScreenState) {
     if (this.state.countGamer !== prevState.countGamer) {
       this.timer = setTimeout(() => {
         req(endpoints.fakeOnline, (data: { ccv: number }) => {

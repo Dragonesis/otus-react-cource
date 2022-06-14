@@ -9,7 +9,7 @@ describe('### IconCards', () => {
     expect(asFragment()).toMatchSnapshot()
   })
   test('IconCards setting props', () => {
-    const { container } = render(<IconCards className='test_class' />)
+    const { container } = render(<IconCards className="test_class" />)
     expect(container.getElementsByClassName('test_class')).toHaveLength(1)
   })
 })

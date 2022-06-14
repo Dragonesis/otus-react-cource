@@ -10,8 +10,22 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<ProtectPath condition={!!user} to={'/auth'}><PlayingField /></ProtectPath>}></Route>
-        <Route path='/auth' element={<ProtectPath condition={!user} to={'/'}><StartScreen /></ProtectPath>}></Route>
+        <Route
+          path="/"
+          element={
+            <ProtectPath condition={!!user} to={'/auth'}>
+              <PlayingField />
+            </ProtectPath>
+          }
+        ></Route>
+        <Route
+          path="/auth"
+          element={
+            <ProtectPath condition={!user} to={'/'}>
+              <StartScreen />
+            </ProtectPath>
+          }
+        ></Route>
       </Routes>
     </BrowserRouter>
   )

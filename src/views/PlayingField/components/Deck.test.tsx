@@ -22,7 +22,7 @@ test('Deck without cards', () => {
     setCardsInHand,
   }
   const { container } = customRender(<Deck />, { providerProps })
-  expect(container.getElementsByTagName('div').length).toBe(0)
+  expect(container.getElementsByTagName('div')).toHaveLength(0)
 })
 
 test('Deck with cards', () => {

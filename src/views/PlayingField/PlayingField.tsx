@@ -1,10 +1,8 @@
 import React, { FC } from 'react'
 import styled from '@emotion/styled'
-import { User } from '@/services/models'
 
 import { useStore } from '@/services/adapters/store'
 import { Deck, Hand, Header } from './components'
-
 
 export const PlayingField: FC = () => {
   const { user } = useStore()
@@ -33,5 +31,4 @@ const ModDeck = styled(Deck)`
   margin-right: 20px;
 `
 
-const ModHand = styled(Hand)`
-`
+const ModHand = styled(Hand)``

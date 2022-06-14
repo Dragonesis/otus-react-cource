@@ -25,7 +25,6 @@ PlayingFieldExample.args = {
   user: {
     email: '',
     name: 'User Name',
-    birthday: ''
+    birthday: '',
   },
 }
-

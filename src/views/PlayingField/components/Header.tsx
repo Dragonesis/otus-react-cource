@@ -17,22 +17,26 @@ export const Header: FC<HeaderProps> = ({ name }) => {
       <ModContainer>
         <Name>{name}</Name>
         <ActionNewGame
-          variant='light'
-          fixSize='s'
+          variant="light"
+          fixSize="s"
           onClick={() => {
             setDeckOfCard(getDeckOfCard(deckOfCardList))
             setCardsInHand([])
           }}
-        >Новая игра</ActionNewGame>
+        >
+          Новая игра
+        </ActionNewGame>
         <ActionNewGame
-          variant='light'
-          fixSize='s'
+          variant="light"
+          fixSize="s"
           onClick={() => {
             setDeckOfCard(null)
             setCardsInHand([])
             setUser(null)
           }}
-        >Выход</ActionNewGame>
+        >
+          Выход
+        </ActionNewGame>
       </ModContainer>
     </Core>
   )

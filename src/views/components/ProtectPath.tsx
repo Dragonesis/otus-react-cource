@@ -1,8 +1,5 @@
-import React, { FC, PropsWithChildren} from 'react'
-import {
-  useLocation,
-  Navigate,
-} from "react-router-dom";
+import React, { FC, PropsWithChildren } from 'react'
+import { useLocation, Navigate } from 'react-router-dom'
 
 export interface ProtectPathProps extends PropsWithChildren<unknown> {
   condition: boolean
@@ -10,11 +7,10 @@ export interface ProtectPathProps extends PropsWithChildren<unknown> {
 }
 
 export const ProtectPath: FC<ProtectPathProps> = ({ children, condition, to }) => {
-
-  let location = useLocation();
+  const location = useLocation()
 
   if (!condition) {
-    <Navigate to={to} state={{ from: location }} replace />
+    return <Navigate to={to} state={{ from: location }} replace />
   }
 
   return children

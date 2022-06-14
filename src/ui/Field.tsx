@@ -15,7 +15,8 @@ export const Field = styled.input<FieldProps>`
   background-color: #fff;
   border-color: ${({ isError }) => isError && 'red'};
 
-  &:hover,&:focus {
+  &:hover,
+  &:focus {
     border-color: #9d9d9d;
   }
 `
